@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Blog System Task New
+                    Laravel Blog System Task1
                 </div>
 
                 <div class="links">
