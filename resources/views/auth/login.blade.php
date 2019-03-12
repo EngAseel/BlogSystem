@@ -12,14 +12,14 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="national_id" class="col-md-4 col-form-label text-md-right">{{ __('National ID') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="national_id" type="number" class="form-control{{ $errors->has('national_id') ? ' is-invalid' : '' }}" name="national_id" value="{{ old('national_id') }}" required autofocus>
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('national_id'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('national_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -63,6 +63,20 @@
                                     </a>
                                 @endif
                             </div>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                            <label class="col-md-4 control-label">Or Login with</label>
+                            <div class="row">
+                            </div>
+                            <div class="col-md-8 offset-md-2">
+                            <a href="{{ url('login/twitter')}}" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+                            <br><a href="{{ url('login/facebook')}}" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+                            <br><a href="{{ url('login/google')}}" class="btn btn-social-icon btn-google"><i class="fa fa-google"></i> Google</a>
+                            <br><a href="{{ url('login/linkedin')}}" class="btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i> Linkedin</a>
+                            <br><a href="{{ url('login/github')}}" class="btn btn-social-icon btn-github"><i class="fa fa-facebook"></i> Github</a>
+                            </div>
+
                         </div>
                     </form>
                 </div>

@@ -15,7 +15,11 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
+                                @if(!empty($name))
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $name }}" required autofocus>
+                                @else
                                 <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                @endif
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
@@ -29,11 +33,27 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
+                                @if(!empty($email))
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email }}" required>
+                                @else
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
+                                @endif
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="national_id" class="col-md-4 col-form-label text-md-right">{{ __('National ID') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="national_id" type="text" class="form-control{{ $errors->has('national_id') ? ' is-invalid' : '' }}" name="national_id" value="{{ old('name') }}" required autofocus>
+
+                                @if ($errors->has('national_id'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('national_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -61,6 +81,8 @@
                             </div>
                         </div>
 
+                        
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -68,6 +90,19 @@
                                 </button>
                             </div>
                         </div>
+                        <hr>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Or Register with</label>
+                            <div class="row">
+                            </div>
+                            <div class="col-md-8 offset-md-2">
+                            <a href="{{ url('login/twitter')}}" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+                            <br><a href="{{ url('login/facebook')}}" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+                            <br><a href="{{ url('login/google')}}" class="btn btn-social-icon btn-google"><i class="fa fa-google"></i> Google</a>
+                            <br><a href="{{ url('login/linkedin')}}" class="btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i> Linkedin</a>
+                            <br><a href="{{ url('login/github')}}" class="btn btn-social-icon btn-github"><i class="fa fa-facebook"></i> Github</a>
+                            </div>
+
                     </form>
                 </div>
             </div>
